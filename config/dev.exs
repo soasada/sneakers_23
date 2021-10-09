@@ -6,6 +6,7 @@ config :sneakers_23, Sneakers23.Repo,
   password: "postgres",
   database: "sneakers_23_dev",
   hostname: "localhost",
+  port: 5441,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 

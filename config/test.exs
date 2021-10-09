@@ -8,8 +8,9 @@ import Config
 config :sneakers_23, Sneakers23.Repo,
   username: "postgres",
   password: "postgres",
-  database: "sneakers_23_test#{System.get_env("MIX_TEST_PARTITION")}",
+  database: "sneakers_23_dev",
   hostname: "localhost",
+  port: 5441,
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: 10
 

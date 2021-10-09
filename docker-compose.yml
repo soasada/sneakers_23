@@ -6,6 +6,6 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: backend_buddet_dev
+      POSTGRES_DB: sneakers_23_dev
     ports:
       - 5441:5432
