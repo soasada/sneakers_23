@@ -7,6 +7,7 @@ defmodule Sneakers23.Application do
 
   @impl true
   def start(_type, _args) do
+    server = Sneakers23.Inventory.child_spec([])
     children = [
       # Start the Ecto repository
       Sneakers23.Repo,
@@ -15,7 +16,8 @@ defmodule Sneakers23.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: Sneakers23.PubSub},
       # Start the Endpoint (http/https)
-      Sneakers23Web.Endpoint
+      Sneakers23Web.Endpoint,
+      server
       # Start a worker by calling: Sneakers23.Worker.start_link(arg)
       # {Sneakers23.Worker, arg}
     ]
