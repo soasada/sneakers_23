@@ -1,0 +1,24 @@
+name: Sneakers 23 CI
+
+on: [ push ]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+      - name: Run docker compose
+        run: docker compose up -d
+      - name: Setup BEAM
+        uses: erlef/setup-beam@v1
+        with:
+          otp-version: '24.1'
+          elixir-version: '1.12.3'
+      - name: Fetch dependencies
+        run: mix deps.get
+      - name: Execute migrations
+        run: mix ecto.setup
+      - name: Run tests
+        run: mix test
