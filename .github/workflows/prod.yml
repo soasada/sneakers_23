@@ -7,6 +7,8 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
+      - name: Check CPU cores
+        run: nproc
       - name: Check out repository
         uses: actions/checkout@v2
       - name: Run docker compose
