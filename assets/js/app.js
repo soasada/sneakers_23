@@ -14,4 +14,5 @@ function setupProductChannel(socket, productId) {
   const productChannel = socket.channel(`product:${productId}`);
   productChannel.join()
     .receive("error", () => console.error("Channel join failed"));
+  productChannel.on("released", ({size_html}) => dom.replaceProductComingSoon(productId, size_html));
 }
