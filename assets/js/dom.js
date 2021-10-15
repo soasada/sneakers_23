@@ -14,7 +14,12 @@ function replaceProductComingSoon(productId, size_html) {
   });
 }
 
+function updateItemLevel(itemId, level) {
+  // TODO: implement
+}
+
 dom.getProductIds = getProductIds;
 dom.replaceProductComingSoon = replaceProductComingSoon;
+dom.updateItemLevel = updateItemLevel;
 
 export default dom;
