@@ -14,7 +14,7 @@ defmodule Sneakers23Web.ProductController do
 
     conn
     |> assign(:products, products)
-    |> put_resp_header("Cache-Control", "no-store, must-revalidate")
+    |> put_resp_header("Cache-Control", "no-store, must-revalidate") # this has the trade-off of increasing the number of hits to the page
     |> render("index.html")
   end
 end
