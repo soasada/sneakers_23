@@ -17,7 +17,8 @@ defmodule Sneakers23.Application do
       {Phoenix.PubSub, name: Sneakers23.PubSub},
       # Start the Endpoint (http/https)
       Sneakers23Web.Endpoint,
-      server
+      server,
+      Sneakers23.Replication,
       # Start a worker by calling: Sneakers23.Worker.start_link(arg)
       # {Sneakers23.Worker, arg}
     ]
