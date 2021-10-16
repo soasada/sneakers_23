@@ -170,18 +170,22 @@ header h2 {
 
 .size-container__entry--level-medium {
   border-color: #FFB347;
+  border-width: thin 10px;
 }
 
 .size-container__entry--level-medium:hover {
   background: #FFB347;
+  border-width: thin 10px;
 }
 
 .size-container__entry--level-low {
   border-color: #FF6961;
+  border-width: thin 10px;
 }
 
 .size-container__entry--level-low:hover {
   background: #FF6961;
+  border-width: thin 10px;
 }
 
 .size-container__entry--level-out {
