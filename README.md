@@ -37,3 +37,9 @@
 `Sneakers23.Inventory.mark_product_released!(2)`
 
 `Sneakers23Mock.InventoryReducer.sell_random_until_gone!()`
+
+## Start Erlang observer
+
+1. In iex put: 
+
+`:observer.start`
