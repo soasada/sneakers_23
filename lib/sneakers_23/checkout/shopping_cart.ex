@@ -1,6 +1,10 @@
 defmodule Sneakers23.Checkout.ShoppingCart do
   defstruct items: []
 
+  @base Sneakers23Web.Endpoint
+  @salt "shopping cart serialization"
+  @max_age 86400 * 7
+
   def new(), do: %__MODULE__{}
 
   # iex> list = [1, 2, 3]
@@ -23,4 +27,18 @@ defmodule Sneakers23.Checkout.ShoppingCart do
   end
 
   def item_ids(%{items: items}), do: items
+
+  def serialize(cart = %__MODULE__{}) do
+    {:ok, Phoenix.Token.sign(@base, @salt, cart, max_age: @max_age)}
+  end
+
+  def deserialize(serialized) do
+    case Phoenix.Token.verify(@base, @salt, serialized, max_age: @max_age) do
+      {:ok, data} ->
+        items = Map.get(data, :items, [])
+        {:ok, %__MODULE__{items: items}}
+
+      e = {:error, _reason} -> e
+    end
+  end
 end
